@@ -25,7 +25,7 @@ bin/rails jobs:workoff
 git push --force-with-lease
 
 ## Para agregar linea por linea los cambios
-git add -p <Ruta del archivo>
+git add -p "Ruta del archivo"
 
 ## Cambiar variables de año
 FactoryBot.create(:variable, :updated_variable, start_date: Date.new(2024,1,1), estado: "abierto")
