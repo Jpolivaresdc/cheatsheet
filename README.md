@@ -24,6 +24,9 @@ bin/rails jobs:workoff
 ## Para pushear despues de un rebase (te permite forzar un push pero evitando pasar a llevar commits de otras personas)
 git push --force-with-lease
 
+## Para agregar linea por linea los cambios
+git add -p <Ruta del archivo>
+
 ## Cambiar variables de año
 FactoryBot.create(:variable, :updated_variable, start_date: Date.new(2024,1,1), estado: "abierto")
 
