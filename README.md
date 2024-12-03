@@ -6,46 +6,74 @@ Repositorio con scripts y comandos utiles, NO es una enciclopedia
 ## Comandos
 
 ### Iniciar Webpack
-``` bin/webpack-dev-server ``` 
+``` 
+bin/webpack-dev-server
+``` 
 
 ### Iniciar postgres (si es que no está corriendo de antemano
-``` sudo service postgresql start ``` 
+``` 
+sudo service postgresql start
+``` 
 
 ### Iniciar postgres y los jobs
-``` sudo service postgresql start && bin/rails jobs:work ``` 
+``` 
+sudo service postgresql start && bin/rails jobs:work
+``` 
 
 ### Iniciar el servidor local matando otros procesos
-``` pkill -9 -f puma ; spring stop ; bin/rails s ``` 
+``` 
+pkill -9 -f puma ; spring stop ; bin/rails s
+``` 
 
 ### Si quiero correr los jobs permanentemente
-``` bin/rails jobs:work  ``` 
+``` 
+bin/rails jobs:work
+``` 
 
 ### Si quiero que se ejecuten solo los jobs encolados
-``` bin/rails jobs:workoff ``` 
+``` 
+bin/rails jobs:workoff
+``` 
 
 ### Para pushear despues de un rebase (te permite forzar un push pero evitando pasar a llevar commits de otras personas)
-``` git push --force-with-lease ```
+``` 
+git push --force-with-lease
+```
 
 ### Para agregar linea por linea los cambios
-``` git add -p "Ruta del archivo" ```
+``` 
+git add -p "Ruta del archivo"
+```
 
 ### Cambiar variables de año
-``` FactoryBot.create(:variable, :updated_variable, start_date: Date.new(2024,1,1), estado: "abierto") ```
+``` 
+FactoryBot.create(:variable, :updated_variable, start_date: Date.new(2024,1,1), estado: "abierto")
+```
 
 ### Rehacer commit sin cambiar el mensaje
-``` git commit --amend --no-edit```
+``` 
+git commit --amend --no-edit
+```
 
 ### Hacer rebase en la rama trayendo los cambios actuales de main
-``` git pull origin master --rebase #cuidado si estas trabajando desde production ```
+``` 
+git pull origin master --rebase #cuidado si estas trabajando desde production
+```
 
 ### Cargar un dump de datos
-``` bin/restore-dump $archivo_dump buk_apartment ```
+``` 
+bin/restore-dump $archivo_dump buk_apartment
+```
 
 ### Hacer un rebase
-``` git rebase -i HEAD~3 #https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History ```
+``` 
+git rebase -i HEAD~3 #https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
+```
 
 ### Limpiar el queue de Jobs
-``` rails jobs:clear ```
+``` 
+rails jobs:clear
+```
 
 ### Nukear la BDD
 
@@ -61,6 +89,7 @@ Repositorio con scripts y comandos utiles, NO es una enciclopedia
 ```
 DISABLE_ACTIVE_ADMIN=0 bin/tapioca dsl --workers 1
 ```
+
 # Datos
 
 ### Puedes crear archivos .local que serán ignorados
@@ -78,18 +107,25 @@ y reload!
 Dejar invitation token como nil.
 
 ### Para dejar todos los usuarios con contraseña password
-``` TENANT={tenant} bin/rails users:change_passwords ```
+``` 
+TENANT={tenant} bin/rails users:change_passwords
+```
 
 ### Mail que no han llegado
 app > carpeta tmp > letter_opener
 
 ### Activar una General
-``` General.find_or_initialize_by(nombre: :habilitar_tareas_pendientes).update!(valor: 'true') ```
+``` 
+General.find_or_initialize_by(nombre: :habilitar_tareas_pendientes).update!(valor: 'true')
+```
 
 ### Cambiar tenant en scripts/consola
-``` Apartment::Tenant.switch! :sibo #Ingresar nombre de tenant ```
+``` 
+Apartment::Tenant.switch! :sibo #Ingresar nombre de tenant
+```
 
 ### Testear en todos los países en una suite
+Incluir en los tests
 ``` CountrySti::Model::ACCEPTED_COUNTRIES.except(:brasil) ```
 
 ### Crear tenants default para cada país
