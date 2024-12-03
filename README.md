@@ -45,6 +45,15 @@ git rebase -i HEAD~3 #https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
 ### Limpiar el queue de Jobs
 rails jobs:clear
 
+### Nukear la BDD
+
+- bin/rails db:drop:all
+- bin/rails db:create
+- bin/rails db:test:prepare
+- bin/rails db:setup
+- bin/restore-dump midump.dump buk_apartment
+- bin/rails db:migrate
+
 # Datos
 
 ### Puedes crear archivos .local que serán ignorados
@@ -78,3 +87,4 @@ CountrySti::Model::ACCEPTED_COUNTRIES.except(:brasil)
 
 ### Crear tenants default para cada país
 bin/rails 'tenant:create_all_base_tenants[20, true]'
+
