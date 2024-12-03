@@ -57,7 +57,7 @@ git commit --amend --no-edit
 
 ### Hacer rebase en la rama trayendo los cambios actuales de main
 ``` 
-git pull origin master --rebase #cuidado si estas trabajando desde production
+git pull origin master --rebase # cuidado si estas trabajando desde production
 ```
 
 ### Cargar un dump de datos
