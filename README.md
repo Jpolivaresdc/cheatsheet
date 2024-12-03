@@ -4,55 +4,55 @@ Repositorio con scripts y comandos utiles, NO es una enciclopedia
 ## Comandos
 
 ### Iniciar Webpack
-bin/webpack-dev-server 
+``` bin/webpack-dev-server ``` 
 
 ### Iniciar postgres (si es que no está corriendo de antemano
-sudo service postgresql start 
+``` sudo service postgresql start ``` 
 
 ### Iniciar postgres y los jobs
-sudo service postgresql start && bin/rails jobs:work
+``` sudo service postgresql start && bin/rails jobs:work ``` 
 
 ### Iniciar el servidor local matando otros procesos
-pkill -9 -f puma ; spring stop ; bin/rails s 
+``` pkill -9 -f puma ; spring stop ; bin/rails s ``` 
 
 ### Si quiero correr los jobs permanentemente
-bin/rails jobs:work  
+``` bin/rails jobs:work  ``` 
 
 ### Si quiero que se ejecuten solo los jobs encolados
-bin/rails jobs:workoff	
+``` bin/rails jobs:workoff ``` 
 
 ### Para pushear despues de un rebase (te permite forzar un push pero evitando pasar a llevar commits de otras personas)
-git push --force-with-lease
+``` git push --force-with-lease ```
 
 ### Para agregar linea por linea los cambios
-git add -p "Ruta del archivo"
+``` git add -p "Ruta del archivo" ```
 
 ### Cambiar variables de año
-FactoryBot.create(:variable, :updated_variable, start_date: Date.new(2024,1,1), estado: "abierto")
+``` FactoryBot.create(:variable, :updated_variable, start_date: Date.new(2024,1,1), estado: "abierto") ```
 
 ### Rehacer commit sin cambiar el mensaje
-git commit --amend --no-edit
+``` git commit --amend --no-edit```
 
 ### Hacer rebase en la rama trayendo los cambios actuales de main
-git pull origin master --rebase #cuidado si estas trabajando desde production
+``` git pull origin master --rebase #cuidado si estas trabajando desde production ```
 
 ### Cargar un dump de datos
-bin/restore-dump $archivo_dump buk_apartment
+``` bin/restore-dump $archivo_dump buk_apartment ```
 
 ### Hacer un rebase
-git rebase -i HEAD~3 #https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
+``` git rebase -i HEAD~3 #https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History ```
 
 ### Limpiar el queue de Jobs
-rails jobs:clear
+``` rails jobs:clear ```
 
 ### Nukear la BDD
 
-- bin/rails db:drop:all
-- bin/rails db:create
-- bin/rails db:test:prepare
-- bin/rails db:setup
-- bin/restore-dump midump.dump buk_apartment
-- bin/rails db:migrate
+- ``` bin/rails db:drop:all ```
+- ``` bin/rails db:create ```
+- ``` bin/rails db:test:prepare ```
+- ``` bin/rails db:setup ```
+- ``` bin/restore-dump midump.dump buk_apartment```
+- ``` bin/rails db:migrate ```
 
 # Datos
 
@@ -62,29 +62,29 @@ rails jobs:clear
 
 ### Activar FF (por consola) 
 Las FF siempre vendran apagadas en dumps por lo que hay que revisarlas (no así las generales)
-En consola escribir: Buk::Feature.enable :<feature>
-Para checkear si está habilitada: Buk::Feature.enabled? :<feature>
-Finalmente: Buk::Feature.clear___feature_cache_cache_per_request
+En consola escribir: ``` Buk::Feature.enable :<feature> ```
+Para checkear si está habilitada: ``` Buk::Feature.enabled? :<feature> ```
+Finalmente: ```  Buk::Feature.clear___feature_cache_cache_per_request ```
 y reload!
 
 ### Para dejar operativo un usuario en ambientes de prueba que requieran acceso:
 Dejar invitation token como nil.
 
 ### Para dejar todos los usuarios con contraseña password
-TENANT={tenant} bin/rails users:change_passwords
+``` TENANT={tenant} bin/rails users:change_passwords ```
 
 ### Mail que no han llegado
 app > carpeta tmp > letter_opener
 
 ### Activar una General
-General.find_or_initialize_by(nombre: :habilitar_tareas_pendientes).update!(valor: 'true')
+``` General.find_or_initialize_by(nombre: :habilitar_tareas_pendientes).update!(valor: 'true') ```
 
 ### Cambiar tenant en scripts/consola
-Apartment::Tenant.switch! :sibo #Ingresar nombre de tenant
+``` Apartment::Tenant.switch! :sibo #Ingresar nombre de tenant ```
 
 ### Testear en todos los países en una suite
-CountrySti::Model::ACCEPTED_COUNTRIES.except(:brasil)
+``` CountrySti::Model::ACCEPTED_COUNTRIES.except(:brasil) ```
 
 ### Crear tenants default para cada país
-bin/rails 'tenant:create_all_base_tenants[20, true]'
+``` bin/rails 'tenant:create_all_base_tenants[20, true]' ```
 
