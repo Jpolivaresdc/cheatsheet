@@ -1,6 +1,8 @@
 # Cheatsheet para Buk/Webapp
 Repositorio con scripts y comandos utiles, NO es una enciclopedia
 
+## Links utiles (TODO)
+
 ## Comandos
 
 ### Iniciar Webpack
@@ -51,9 +53,14 @@ Repositorio con scripts y comandos utiles, NO es una enciclopedia
 - ``` bin/rails db:create ```
 - ``` bin/rails db:test:prepare ```
 - ``` bin/rails db:setup ```
-- ``` bin/restore-dump midump.dump buk_apartment```
+- ``` bin/restore-dump midump.dump buk_apartment ```
 - ``` bin/rails db:migrate ```
 
+### Correr sorbet para actualizar archivos y pasar los pipes
+
+```
+DISABLE_ACTIVE_ADMIN=0 bin/tapioca dsl --workers 1
+```
 # Datos
 
 ### Puedes crear archivos .local que serán ignorados
