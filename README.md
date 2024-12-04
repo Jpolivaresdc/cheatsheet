@@ -2,35 +2,39 @@
 Repositorio con scripts y comandos utiles, NO es una enciclopedia
 
 ## Links utiles (TODO)
+- [Testing basico :wrench:](https://github.com/bukhr/buk-webapp/blob/7c0613ed33ab56646657b3775bd993c243a6899f/docs/test.md)
+
 
 ## Comandos
 
-### Iniciar Webpack
+### Iniciar el ambiente :boot:
+
+Iniciar webpack
 ``` 
 bin/webpack-dev-server
 ``` 
 
-### Iniciar postgres (si es que no está corriendo de antemano
+Iniciar postgres (si es que no está corriendo de antemano)
 ``` 
 sudo service postgresql start
 ``` 
 
-### Iniciar postgres y los jobs
+Iniciar postgres y despues jobs (&& corre al terminar el primer comando)
 ``` 
 sudo service postgresql start && bin/rails jobs:work
 ``` 
 
-### Iniciar el servidor local matando otros procesos
+Iniciar el servidor local matando otros procesos:
 ``` 
 pkill -9 -f puma ; spring stop ; bin/rails s
 ``` 
 
-### Si quiero correr los jobs permanentemente
+Iniciar con Active_Admin (por default se desactiva ya que consume recursos y no es practico)
 ``` 
-bin/rails jobs:work
+DISABLE_ACTIVE_ADMIN=0 bin/rails s
 ``` 
 
-### Si quiero que se ejecuten solo los jobs encolados
+Si quiero que se ejecuten solo los jobs encolados:
 ``` 
 bin/rails jobs:workoff
 ``` 
@@ -89,8 +93,6 @@ rails jobs:clear
 ```
 DISABLE_ACTIVE_ADMIN=0 bin/tapioca dsl --workers 1
 ```
-
-# Datos
 
 ### Puedes crear archivos .local que serán ignorados
 - Esto es especialmente util para crear archivos .env.local (permite cambiar variables como el test runtime)
