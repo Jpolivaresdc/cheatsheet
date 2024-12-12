@@ -135,11 +135,11 @@ Incluir en los tests
 
 ### Prioridad en modelos
 
-after_initialize ↓ (1)
-before_validation ↓ (2)
-after_validation ↓ (3)
-before_save ↓ (4) 
-before_create ↓ (5)
-after_create ↓ (6)
-after_save ↓ (7)
-after_commit ↓ (8)
+- after_initialize ↓ (1)
+- before_validation ↓ (2)
+- after_validation ↓ (3)
+- before_save ↓ (4) 
+- before_create ↓ (5)
+- after_create ↓ (6)
+- after_save ↓ (7)
+- after_commit ↓ (8)
