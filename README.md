@@ -81,12 +81,24 @@ rails jobs:clear
 
 ### Nukear la BDD
 
-- ``` bin/rails db:drop:all ```
-- ``` bin/rails db:create ```
-- ``` bin/rails db:test:prepare ```
-- ``` bin/rails db:setup ```
-- ``` bin/restore-dump midump.dump buk_apartment ```
-- ``` bin/rails db:migrate ```
+- ```
+  bin/rails db:drop:all
+  ```
+- ```
+  bin/rails db:create
+  ```
+- ```
+  bin/rails db:test:prepare
+  ```
+- ```
+  bin/rails db:setup
+  ```
+- ```
+  bin/restore-dump midump.dump buk_apartment
+  ```
+- ```
+  bin/rails db:migrate
+  ```
 
 ### Correr sorbet para actualizar archivos y pasar los pipes
 
