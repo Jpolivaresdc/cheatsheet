@@ -143,7 +143,9 @@ Incluir en los tests
 ``` CountrySti::Model::ACCEPTED_COUNTRIES.except(:brasil) ```
 
 ### Crear tenants default para cada país
-``` bin/rails 'tenant:create_all_base_tenants[20, true]' ```
+```
+bin/rails 'tenant:create_all_base_tenants[20, true]'
+```
 
 ### Prioridad en modelos
 
