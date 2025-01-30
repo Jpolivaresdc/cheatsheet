@@ -147,6 +147,14 @@ Incluir en los tests
 bin/rails 'tenant:create_all_base_tenants[20, true]'
 ```
 
+### Ejecutar todo dentro de una transaction
+```
+ActiveRecord::Base.transaction do
+  usuario = Usuario.create!(nombre: "Juan")
+  pedido = Pedido.create!(usuario: usuario, total: 100.0)
+end
+```
+
 ### Prioridad en modelos
 
 - after_initialize ↓ (1)
