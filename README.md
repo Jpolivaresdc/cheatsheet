@@ -79,6 +79,11 @@ git rebase -i HEAD~3 #https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
 rails jobs:clear
 ```
 
+### Agregar Flaky
+``` 
+bin/rails "flaky_test:add_test[<relative_path>]"
+```
+
 ### Nukear la BDD
 
 - ```
