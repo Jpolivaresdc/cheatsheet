@@ -1,0 +1,42 @@
+Apartment::Tenant.switch! :intexus
+
+Rails.logger.level = 4 # at any time
+require 'date'
+
+@employee = Employee.find(436)
+
+
+# Fecha inicial: hoy (puedes cambiarla si lo deseas)
+start_date = Date.today
+# Fecha final: dos meses adelante (se usa el operador >>)
+end_date = start_date >> 3
+
+# Imprimimos el encabezado de la tabla
+header = [
+  "Fecha",
+  "Fecha_termino",
+  "360",
+  "360_colombia",
+  "360_bma",
+]
+puts header.join(" || ")
+puts "-" * 100
+@results = {}
+# Iteramos sobre cada día entre start_date y end_date
+(start_date..end_date).each do |date|
+  # Llamadas a los métodos usando la sintaxis tipo date.method(date)
+  VacationType::Colombia.find_by(code: "legales").update!(proportional_calculation_base: :days_360)
+  calculadora = Core::Vacacion::CalculadoraDiasProporcionales.new(@employee)
+  res1 = calculadora.vacaciones_proporcionales_hasta(:legales, date, brutas: true)
+
+  VacationType::Colombia.find_by(code: "legales").update!(proportional_calculation_base: :days_360_bma)
+  calculadora = Core::Vacacion::CalculadoraDiasProporcionales.new(@employee)
+  res2 = calculadora.vacaciones_proporcionales_hasta(:legales, date, brutas: true)
+
+  VacationType::Colombia.find_by(code: "legales").update!(proportional_calculation_base: :days_360)
+  # Mostramos la fila de la tabla
+  puts "#{date} #{(res1 * 1000.0).truncate(6) / 1000.0} #{(res2 * 1000.0).truncate(6) / 1000.0}"
+  #@results[date] = [(res1[:legales] * 1000.0).truncate(4) / 1000.0, (res2[:legales].truncate(4) * 1000.0).truncate(4) / 1000.0]
+end
+
+puts @results
