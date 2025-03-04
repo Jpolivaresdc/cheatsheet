@@ -160,6 +160,12 @@ ActiveRecord::Base.transaction do
 end
 ```
 
+### Ejemplo de como surfear en grafana una consulta de jobs
+
+```
+https://grafana.infra.buk.cl/explore?orgId=1&left=%7B%22datasource%22:%22logschile%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22editorMode%22:%22code%22,%22expr%22:%22%7Bnamespace%3D%5C%22enterprise-chile%5C%22%7D%20%7C%3D%20%5C%22delayed_jobs%5C%22%20%7C%3D%20%5C%22INSERT%5C%22%20%7C%3D%20%5C%22PendingTasks::MarkVacacionesPorVencerPendingTasksAsCompletedJob%5C%22%22,%22queryType%22:%22range%22%7D%5D,%22range%22:%7B%22from%22:%22now-5m%22,%22to%22:%22now%22%7D%7D
+```
+
 ### Prioridad en modelos
 
 - after_initialize ↓ (1)
