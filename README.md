@@ -104,6 +104,13 @@ bin/rails "flaky_test:add_test[<relative_path>]"
 - ```
   bin/rails db:migrate
   ```
+### Auto-login
+
+Con el mail de un usuario y con un tenant en especifico:
+
+```
+http://localhost:3000/?tenant=<tenant>&auto_login=<user_email>
+```
 
 ### Correr sorbet para actualizar archivos y pasar los pipes
 
