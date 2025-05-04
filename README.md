@@ -124,11 +124,22 @@ DISABLE_ACTIVE_ADMIN=0 bin/tapioca dsl --workers 1
 
 ### Activar FF (por consola) 
 Las FF siempre vendran apagadas en dumps por lo que hay que revisarlas (no así las generales)
-En consola escribir: ``` Buk::Feature.enable :<feature> ```
-Para checkear si está habilitada: ``` Buk::Feature.enabled? :<feature> ```
-Finalmente: ```  Buk::Feature.clear___feature_cache_cache_per_request ```
-y reload!
 
+En consola escribir:
+``` Buk::Feature.enable :<feature> ```
+
+Para checkear si está habilitada: 
+
+``` Buk::Feature.enabled? :<feature> ```
+
+Finalmente: 
+```  Buk::Feature.clear___feature_cache_cache_per_request ```
+
+y 
+
+``` 
+reload!
+``` 
 ### Para dejar operativo un usuario en ambientes de prueba que requieran acceso:
 Dejar invitation token como nil.
 
