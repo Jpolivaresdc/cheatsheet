@@ -118,6 +118,21 @@ http://localhost:3000/?tenant=<tenant>&auto_login=<user_email>
 DISABLE_ACTIVE_ADMIN=0 bin/tapioca dsl --workers 1
 ```
 
+actualiza los rbi segun los cambios commiteados respecto a master
+```
+bin/update-changed-rbi committed
+```
+
+ actualiza los rbi segun los cambios que no han sido commiteados.
+```
+bin/update-changed-rbi uncommitted
+```
+
+actualiza segun todos los cambios.
+```
+bin/update-changed-rbi all
+```
+
 ### Puedes crear archivos .local que serán ignorados
 - Esto es especialmente util para crear archivos .env.local (permite cambiar variables como el test runtime)
 
