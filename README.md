@@ -5,6 +5,10 @@ Repositorio con scripts y comandos utiles, NO es una enciclopedia
 - [Testing basico :wrench:](https://github.com/bukhr/buk-webapp/blob/7c0613ed33ab56646657b3775bd993c243a6899f/docs/test.md)
 - [PR's que tocan vacaciones](https://github.com/bukhr/buk-webapp/pulls?q=is%3Aopen+team-review-requested%3Abukhr%2Fcore-vacaciones+-author%3Abermuditas)
 
+## Lectures Utiles
+
+- [Carga cognitiva](https://minds.md/zakirullin/cognitive)
+
 ## Comandos
 
 ### Iniciar el ambiente :boot:
