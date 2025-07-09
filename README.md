@@ -1,5 +1,5 @@
 # Cheatsheet para Buk/Webapp
-Repositorio con scripts y comandos utiles, NO es una enciclopedia
+Repositorio con scripts y comandos utiles, NO es una enciclopedia.
 
 ## Links utiles (TODO)
 - [Testing basico :wrench:](https://github.com/bukhr/buk-webapp/blob/7c0613ed33ab56646657b3775bd993c243a6899f/docs/test.md)
