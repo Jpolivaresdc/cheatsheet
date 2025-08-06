@@ -124,7 +124,7 @@ DISABLE_ACTIVE_ADMIN=0 bin/tapioca dsl --workers 1
 
 actualiza los rbi segun los cambios commiteados respecto a master
 ```
-bin/update-changed-rbi committed
+bin/update-changed-rbi commited
 ```
 
  actualiza los rbi segun los cambios que no han sido commiteados.
