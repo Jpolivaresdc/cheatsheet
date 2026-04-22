@@ -72,7 +72,7 @@ git pull origin master --rebase # cuidado si estas trabajando desde production
 
 ### Cargar un dump de datos
 ``` 
-bin/restore-dump $archivo_dump buk_apartment
+bin/restore-dump $archivo_dump buk_apartment --full 
 ```
 
 ### Hacer un rebase
