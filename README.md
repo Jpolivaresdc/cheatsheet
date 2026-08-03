@@ -215,3 +215,70 @@ https://grafana.infra.buk.cl/explore?orgId=1&left=%7B%22datasource%22:%22logschi
 - after_create ↓ (6)
 - after_save ↓ (7)
 - after_commit ↓ (8)
+
+# Diccionario de modelos: packs/attendance (buk-webapp) -> ctrlit
+
+Los modelos `InternalApi::*`, `Ability::*`, y los value objects (`T::Struct`, clases sin `< ApplicationRecord`) no tienen homologos en ctrlit porque son DTOs o modulos de autorizacion; se marcan con "-".
+
+## Shifts
+
+| buk-webapp | ctrlit | Notas |
+|---|---|---|
+| `Attendance::Shift` | `DefinicionJornada` | |
+| `Attendance::ShiftAssignment` | `AsignacionJornada` | |
+| `Attendance::FlexibleShift` | `JornadaFlexible` | |
+| `Attendance::RecintoShift` | `JornadaObra` | "Recinto" en buk = "Obra" en ctrlit |
+| `Attendance::RotatingShift` | `JornadaRotativa` | |
+| `Attendance::TransitoryShift` | `JornadaTransitoria` | |
+| `Attendance::WeeklyShift` | `JornadaSemanal` | |
+| `Attendance::WorkSession` | `JornadaReal` | |
+| `Attendance::WorkSessionSegment` | `BloqueJornadaReal` | AR model |
+| `Attendance::WorkSessionDetail` | - | Value object (no AR), sin homologo |
+| `Attendance::ExemptResolution` | `ResolucionExentas` | |
+
+## Calculations
+
+| buk-webapp | ctrlit | Notas |
+|---|---|---|
+| `Attendance::TimeRegistration` | `RegistrosTiempo` | |
+| `Attendance::TimeRegistrationWorkSessionCalculation` | `RegistrosTiempoMaterializacion` | |
+| `Attendance::TimeRegistrationsResult` | `ResultadosRegistrosTiempo` | |
+| `Attendance::TimeRegistrationsResultsCalculation` | `MaterializacionResultadoTiempo` | |
+| `Attendance::WorkSessionCalculation` | `MaterializacionJornada` | |
+| `Attendance::WorkSessionCalculationShadow` | - | Tabla shadow, sin homologo |
+| `Attendance::WorkSessionSegmentCalculation` | `MaterializacionBloqueJornada` | |
+| `AttendancePolicy::Calculation` | `ConfiguracionCalculo` / `MetodoCalculo` | Dos dominios en ctrlit |
+| `AttendancePolicy::Gracetime` | `Holguras` | |
+| `AttendancePolicy::Overtime` | `TiposHorasExtra` | |
+| `AttendancePolicy::OvertimeBand` | `MarcaHoraExtra` | Aproximado; ctrlit no separa banda |
+| `AttendancePolicy::TimeSlot` | `TramosHorarios` | |
+| `AttendancePolicy::Undertime` | - | Sin homologo en ctrlit |
+| `Attendance::Week` / `Attendance::WeekBase` / `AttendanceCard::Week` | - | Value objects de calculo |
+| `Attendance::HalfShiftAbsence` | - | T::Struct, sin homologo |
+| `AttendanceCard::CompensationValue` | - | T::Struct, sin homologo |
+
+## Clockings
+
+| buk-webapp | ctrlit | Notas |
+|---|---|---|
+| `Attendance::Record` | `Registro` | |
+| `Attendance::ManualRecord` | `HistorialRegistroManual` | ctrlit unifica registros manuales en historial |
+| `Attendance::Month` | - | Value object, sin homologo |
+| `AttendancePolicy::Marking` | `General` | Config general de marcaje; aproximado |
+
+## Core
+
+| buk-webapp | ctrlit | Notas |
+|---|---|---|
+| `Attendance::AfdEvent` | `EventoEtl` | AFD = eventos de fiscalizacion |
+| `Attendance::NsrCounter` | - | Sin homologo (concepto de nomina) |
+| `AttendancePolicy::Company` | `Empresa` | Solo la parte de politica de asistencia |
+| `AttendancePolicy::Notification` | `Notificacion` | |
+
+## Sin homologo
+
+- `Attendance::InternalApi::*` (todos) - DTOs de la API interna
+- `Ability::*` (todos) - modulos de autorizacion Cancan
+- `AttendanceReports::*` - objetos de reporte sin persistencia
+- `FutureTask::Attendance::RecintoMigration::ImporterTrigger` - tarea de migracion puntual
+
