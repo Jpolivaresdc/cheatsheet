@@ -192,7 +192,6 @@ bin/rails 'tenant:create_all_base_tenants[20, true]'
 ```
 
 ### Crear tenant base para asistencia
-
 ```
 bin/rails tenant:create_qa'[asistencia,50,attendancecontrolcl]
 ```
