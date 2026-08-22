@@ -271,7 +271,7 @@ Los modelos `InternalApi::*`, `Ability::*`, y los value objects (`T::Struct`, cl
 | `Attendance::Month` | - | Value object, sin homologo |
 | `AttendancePolicy::Marking` | `General` | Config general de marcaje; aproximado |
 
-## Core
+## Otros
 
 | buk-webapp | ctrlit | Notas |
 |---|---|---|
@@ -279,8 +279,6 @@ Los modelos `InternalApi::*`, `Ability::*`, y los value objects (`T::Struct`, cl
 | `Attendance::NsrCounter` | - | Sin homologo (concepto de nomina) |
 | `AttendancePolicy::Company` | `Empresa` | Solo la parte de politica de asistencia |
 | `AttendancePolicy::Notification` | `Notificacion` | |
-
-## Sin homologo
 
 - `Attendance::InternalApi::*` (todos) - DTOs de la API interna
 - `Ability::*` (todos) - modulos de autorizacion Cancan
