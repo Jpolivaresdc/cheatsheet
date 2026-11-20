@@ -285,3 +285,19 @@ Los modelos `InternalApi::*`, `Ability::*`, y los value objects (`T::Struct`, cl
 - `AttendanceReports::*` - objetos de reporte sin persistencia
 - `FutureTask::Attendance::RecintoMigration::ImporterTrigger` - tarea de migracion puntual
 
+## Sincronizar localmente
+
+# URL Base Asistencia
+URL_BASE_BUK_ASISTENCIA=http://localhost:8080/ctrl/
+INTERNAL_API_URL_BUK_ASISTENCIA=http://localhost:8080/ctrl/api/v1/sync/
+BYPASS_INTERNAL_API_AUTH=true
+
+webapp
+
+ctrlit:
+# URL de la internal_api de Webapp local (sin trailing slash)
+WEBAPP_URL := http://localhost:3000
+DISABLE_APP2_ROUTING := true
+INTERNAL_API_SECRET_ARN_ASISTENCIA_BUK_WEB_APP := asistencia_buk_web_app
+BYPASS_AUTENTICACION_INTERNAL_API := true
+
